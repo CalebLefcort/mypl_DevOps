@@ -7,8 +7,8 @@ CLASS: CPSC 326
 """
 
 from dataclasses import dataclass
-from mypl_token import Token, TokenType
-from mypl_ast import *
+from mpl.mypl_token import Token, TokenType
+from mpl.mypl_ast import *
 
 
 class PrintVisitor(Visitor):

@@ -7,10 +7,10 @@ CLASS: CPSC 326
 """
 
 from dataclasses import dataclass
-from mypl_error import *
-from mypl_token import Token, TokenType
-from mypl_ast import *
-from mypl_symbol_table import SymbolTable
+from mpl.mypl_error import *
+from mpl.mypl_token import Token, TokenType
+from mpl.mypl_ast import *
+from mpl.mypl_symbol_table import SymbolTable
 
 
 BASE_TYPES = ['int', 'double', 'bool', 'string']

@@ -6,12 +6,12 @@ CLASS: CPSC 326
 
 """
 
-from mypl_token import *
-from mypl_ast import *
-from mypl_var_table import *
-from mypl_frame import *
-from mypl_opcode import *
-from mypl_vm import *
+from mpl.mypl_token import *
+from mpl.mypl_ast import *
+from mpl.mypl_var_table import *
+from mpl.mypl_frame import *
+from mpl.mypl_opcode import *
+from mpl.mypl_vm import *
 
 length_types = ['length_intarray', 'length_doublearray', 'length_stringarray', 'length_boolarray','length_string']
 class CodeGenerator (Visitor):

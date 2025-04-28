@@ -7,7 +7,7 @@ CLASS: CPSC 326
 """
 
 from dataclasses import dataclass
-from mypl_token import Token
+from mpl.mypl_token import Token
 from typing import List
 
 #----------------------------------------------------------------------

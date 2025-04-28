@@ -10,7 +10,7 @@ CLASS: CPSC 326
 
 from dataclasses import dataclass, field
 from typing import Any
-from mypl_opcode import OpCode
+from mpl.mypl_opcode import OpCode
 
 
 @dataclass

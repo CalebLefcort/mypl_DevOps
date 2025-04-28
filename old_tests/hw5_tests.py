@@ -18,10 +18,10 @@ CLASS: CPSC 326
 import pytest
 import io
 
-from mypl_error import *
-from mypl_opcode import *
-from mypl_frame import *
-from mypl_vm import *
+from mpl.mypl_error import *
+from mpl.mypl_opcode import *
+from mpl.mypl_frame import *
+from mpl.mypl_vm import *
 
 
 #----------------------------------------------------------------------

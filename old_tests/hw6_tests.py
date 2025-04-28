@@ -18,16 +18,16 @@ CLASS: CPSC 326
 import pytest
 import io
 
-from mypl_error import *
-from mypl_iowrapper import *
-from mypl_token import *
-from mypl_lexer import *
-from mypl_ast_parser import *
-from mypl_var_table import *
-from mypl_code_gen import *
-from mypl_vm import *
-from mypl_semantic_checker import *
-from mypl_symbol_table import *
+from mpl.mypl_error import *
+from mpl.mypl_iowrapper import *
+from mpl.mypl_token import *
+from mpl.mypl_lexer import *
+from mpl.mypl_ast_parser import *
+from mpl.mypl_var_table import *
+from mpl.mypl_code_gen import *
+from mpl.mypl_vm import *
+from mpl.mypl_semantic_checker import *
+from mpl.mypl_symbol_table import *
 
 
 #----------------------------------------------------------------------

@@ -6,9 +6,9 @@ CLASS: CPSC 326
 
 """
 
-from mypl_error import *
-from mypl_opcode import *
-from mypl_frame import *
+from mpl.mypl_error import *
+from mpl.mypl_opcode import *
+from mpl.mypl_frame import *
 
 
 class VM:

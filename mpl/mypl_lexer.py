@@ -6,8 +6,8 @@ CLASS: CPSC 326
 
 """
 
-from mypl_token import *
-from mypl_error import *
+from mpl.mypl_token import *
+from mpl.mypl_error import *
 
 
 class Lexer:
