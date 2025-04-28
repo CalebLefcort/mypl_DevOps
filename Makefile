@@ -3,8 +3,8 @@ PYTHON = python3
 
 # Directories
 SRC_DIR = .
-TEST_DIR = .
-LINT_DIR = .
+TEST_DIR = ./bin/project_tests.py
+LINT_DIR = ./bin
 
 # Linting
 LINTER = pylint
@@ -13,10 +13,10 @@ LINTER = pylint
 TEST_CMD = pytest
 
 # Packages to install using apt
-APT_PACKAGES = pylint pytest
+APT_PACKAGES = pylint python3-pytest
 
 # Targets
-.PHONY: all lint test install clean
+#.PHONY: all lint test install clean
 
 # Default target (runs everything)
 all: lint test
