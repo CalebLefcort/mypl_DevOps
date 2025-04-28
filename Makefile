@@ -1,39 +1,24 @@
-# Python-related settings
 PYTHON = python3
 
-# Directories
 SRC_DIR = .
 TEST_DIR = ./bin/project_tests.py
 LINT_DIR = ./bin
 
-# Linting
 LINTER = pylint
 
-# Testing
 TEST_CMD = pytest
 
-# Packages to install using apt
 APT_PACKAGES = pylint python3-pytest
 
-# Targets
-#.PHONY: all lint test install clean
-
-# Default target (runs everything)
-all: lint test
-
-# Install dependencies using apt
 install:
 	apt update
 	apt install -y $(APT_PACKAGES)
 
-# Run linting
+build:
+	echo "Building"
+
 lint:
 	$(LINTER) $(LINTER_OPTS) $(LINT_DIR)
 
-# Run tests
 test:
 	$(TEST_CMD) $(TEST_OPTS) $(TEST_DIR)
-
-# Clean up (remove .pyc files)
-clean:
-	find $(SRC_DIR) -name "*.pyc" -exec rm -f {} \;
