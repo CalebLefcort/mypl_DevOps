@@ -1,0 +1,123 @@
+//----------------------------------------------------------------------
+// Project Test Program
+// Caleb Lefcort
+// Bowers 326
+// 5/10/2024
+//
+// This program implements an overloaded selection sort function and a swap function for ints and doubles.
+//----------------------------------------------------------------------
+
+
+array int swap(array int xs, int x, int y){
+    int temp = xs[x];
+    xs[x] = xs[y];
+    xs[y] = temp;
+    return xs;
+}
+
+array double swap(array double xs, int x, int y){
+    double temp = xs[x];
+    xs[x] = xs[y];
+    xs[y] = temp;
+    return xs;
+}
+
+array int selectionSort(array int xs){
+    for(int i = 0; i < length(xs) - 1; i = i+1){
+        int minIndex = i;
+        for(int j = i+1; j < length(xs); j = j+1){
+            if(xs[j] < xs[minIndex]){
+                minIndex = j;
+            }
+        }
+        if (minIndex != i){
+            xs = swap(xs, minIndex, i);
+        }
+    }
+    return xs;
+}
+
+array double selectionSort(array double xs){
+    for(int i = 0; i < length(xs) - 1; i = i+1){
+        int minIndex = i;
+        for(int j = i+1; j < length(xs); j = j+1){
+            if(xs[j] < xs[minIndex]){
+                minIndex = j;
+            }
+        }
+        if (minIndex != i){
+            xs = swap(xs, minIndex, i);
+        }
+    }
+    return xs;
+}
+void main() {
+    array int test1 = new int[10];
+
+    //initilize values
+    test1[0] = 2;
+    test1[1] = 1;
+    test1[2] = 54;
+    test1[3] = 6;
+    test1[4] = 8;
+    test1[5] = 34;
+    test1[6] = 0;
+    test1[7] = 2;
+    test1[8] = 0 - 2;
+    test1[9] = 0 - 8;
+
+    print("Initial int array [");
+    for(int i = 0; i < 10; i = i+1){
+        print(test1[i]);
+        if(i != 9){
+            print(",");
+        }
+    }
+
+    //sort
+    test1 = selectionSort(test1); 
+
+    print("] \nSorted int array [");
+    for(int i = 0; i < 10; i = i+1){
+        print(test1[i]);
+        if(i != 9){
+            print(",");
+        }
+    }
+    print("]\n");
+
+
+    array double test2 = new double[10];
+
+    //initilize values
+    test2[0] = 2.7;
+    test2[1] = 1.4;
+    test2[2] = 54.4;
+    test2[3] = 6.0;
+    test2[4] = 8.32;
+    test2[5] = 34.6565;
+    test2[6] = 0.0;
+    test2[7] = 2.99;
+    test2[8] = 0.0 - 2.3;
+    test2[9] = 0.0 - 8.5;
+
+    print("Initial double array [");
+    for(int i = 0; i < 10; i = i+1){
+        print(test2[i]);
+        if(i != 9){
+            print(",");
+        }
+    }
+
+    //sort
+    test2 = selectionSort(test2); 
+
+    print("] \nSorted double array [");
+    for(int i = 0; i < 10; i = i+1){
+        print(test2[i]);
+        if(i != 9){
+            print(",");
+        }
+    }
+    print("]\n");
+}

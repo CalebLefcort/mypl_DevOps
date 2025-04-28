@@ -1,0 +1,35 @@
+//----------------------------------------------------------------------
+// Project Test Program
+// Caleb Lefcort
+// Bowers 326
+// 5/10/2024
+//
+// This program tests overloading the print built in with a struct
+//----------------------------------------------------------------------
+
+struct Car{
+    string brand;
+    string model;
+    int year;
+    int weight;
+    int horsepower;
+}
+
+void print(Car c){
+    print("Brand: ");
+    print(c.brand);
+    print(", Model: ");
+    print(c.model);
+    print(", Year: ");
+    print(c.year);
+    print(", Weight: ");
+    print(c.weight);
+    print(", Horsepower: ");
+    print(c.horsepower);
+    print("\n");
+}
+
+void main(){
+    Car c = new Car("Subaru", "WRX", 2010, 3264, 265);
+    print(c);
+}

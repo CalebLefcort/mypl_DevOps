@@ -1,0 +1,33 @@
+//----------------------------------------------------------------------
+// HW-6 Test Program
+//----------------------------------------------------------------------
+
+
+void println(string s) {
+  print(s + "\n");
+}
+
+int f1(int x, int y) {
+  int z = x + y;
+  println("... in f1");
+  return z;
+}
+
+string f2(string x) {
+  println("... in f2, x = " + x); 
+  return x + x;
+}
+
+string f3(string x) {
+  x = f2(x);
+  println("... in f3, after f2, x = " + x);
+  return x;
+}
+
+void main() {
+  int r1 = f1(3, 4);
+  println("Should be 7: " + itos(r1));
+  string r2 = f3("ab");
+  println("Should be abab: " + r2);
+}
+

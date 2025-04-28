@@ -1,0 +1,67 @@
+//----------------------------------------------------------------------
+// Project Test Program
+// Caleb Lefcort
+// Bowers 326
+// 5/10/2024
+//
+// This program is very similar to one of the provided examples but it uses an overload of the 
+// print fucntion to print the tree and it prints the tree backwards
+//----------------------------------------------------------------------
+
+struct Node {
+    int value;
+    Node left;
+    Node right;
+}
+
+Node make_tree(int val) {
+    return new Node(val, null, null);
+}
+
+
+void insert(Node root, int val) {
+    if (root == null) {
+        return null;
+    }
+    if (val <= root.value) {
+        if (root.left == null) {
+            root.left = make_tree(val);
+        }
+        else {
+            insert(root.left, val);
+        }
+    }
+    else {
+        if (root.right == null) {
+            root.right = make_tree(val);
+        }
+        else {
+            insert(root.right, val);
+        }
+    }
+}
+
+void print(Node root) {
+    if (root != null) {
+        print(root.right);
+        print(root.value);
+        print(" ");
+        print(root.left);
+    }
+}
+
+
+void main() {
+    Node tree = make_tree(10);
+    insert(tree, 4);
+    insert(tree, 45);
+    insert(tree, 1);
+    insert(tree, 15);
+    insert(tree, 98);
+    insert(tree, 0);
+    insert(tree, 145);
+    insert(tree, 3);
+    print("Tree Values: ");
+    print(tree);
+    print("\n");
+}

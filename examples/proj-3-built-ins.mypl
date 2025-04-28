@@ -1,0 +1,49 @@
+//----------------------------------------------------------------------
+// Project Test Program
+// Caleb Lefcort
+// Bowers 326
+// 5/10/2024
+//
+// This program tests overloading all of the built-in functions
+//----------------------------------------------------------------------
+
+void stoi(){print("P");}
+void stod(){print("U");}
+void itos(){print("R");}
+void itod(){print("P");}
+void dtos(){print("L");}
+void dtoi(){print("E");}
+
+void length(){print("!");}
+void get(){print("?");}
+
+void main() {
+
+  print("Should be '7': " + itos(stoi("6") + 1));
+  print("\n");
+
+  print("Should be '3.5': " + dtos(stod("3.25") + 0.25));
+  print("\n");
+
+  print("Should be '7': " + itos(length("foo bar")));
+  print("\n");
+
+  print("Should be 'f': " + get(0, "foo"));
+  print("\n");
+
+  print("Should be 'o': " + get(1, "foo"));
+  print("\n");
+
+  print("Should be PURPLE!?: ");
+  stoi();
+  stod();
+  itos();
+  itod();
+  dtos();
+  dtoi();
+  length();
+  get();
+  
+  print("\n");
+}
+

@@ -1,0 +1,30 @@
+//----------------------------------------------------------------------
+// Project Test Program
+// Caleb Lefcort
+// Bowers 326
+// 5/10/2024
+//
+// This program tests overloading the input built in to make it more like python
+//----------------------------------------------------------------------
+
+string input(string x){
+    print(x);
+    return input();
+}
+
+void main(){
+    double x = stod(input("Enter a number: "));
+    double y = stod(input("Enter a new number: "));
+    print("your two numbers added is: ");
+    print(x+y);
+    print("\n");
+    print("your two numbers multipilied is: ");
+    print(x*y);
+    print("\n");
+    print("your two numbers divided is: ");
+    print(x/y);
+    print("\n");
+    print("your two subtracted is: ");
+    print(x-y);
+    print("\n");
+}

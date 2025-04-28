@@ -1,0 +1,137 @@
+//----------------------------------------------------------------------
+// Project Test Program
+// Caleb Lefcort
+// Bowers 326
+// 5/10/2024
+//
+// This program tests overloading with similar structs in a more practical example
+//----------------------------------------------------------------------
+
+struct Car{
+    string brand;
+    int year;
+    int weight;
+    int passangers;
+    int max_weight;
+    int max_passangers;
+}
+
+struct Truck{
+    string brand;
+    int year;
+    int weight;
+    int passangers;
+    int max_weight;
+    int max_passangers;
+    bool trailer;
+}
+
+string add_passanger(Car c){
+    if (c.passangers < c.max_passangers){
+        c.passangers = c.passangers + 1;
+        return "passanger added to car\n";
+    }
+    else{
+        return "max passangers already reached\n";
+    }
+}
+
+string add_cargo(Car c, int cargo){
+    if ((c.weight + cargo) <= c.max_weight){
+        c.weight = c.weight + cargo;
+        return "cargo added to car\n";
+    }
+    else{
+        return "cargo will exceed max weight\n";
+    }
+}
+
+string add_cargo(Truck t, int cargo){
+    if ((t.weight + cargo) <= t.max_weight){
+        t.weight = t.weight + cargo;
+        return "cargo added to truck\n";
+    }
+    else{
+        return "cargo will exceed max weight\n";
+    }
+}
+
+string add_passanger(Truck t){
+    if (t.passangers < t.max_passangers){
+        t.passangers = t.passangers + 1;
+        return "passanger added to truck\n";
+    }
+    else{
+        return "max passangers already reached \n";
+    }
+}
+
+void print(Car c){
+    print("Brand: ");
+    print(c.brand);
+    print(", Year: ");
+    print(c.year);
+    print(", Weight: ");
+    print(c.weight);
+    print(", Passangers: ");
+    print(c.passangers);
+    print(", Max Weight: ");
+    print(c.max_weight);
+    print(", Max Passangers: ");
+    print(c.max_passangers);
+    print("\n");
+}
+
+void print(Truck t){
+    print("Brand: ");
+    print(t.brand);
+    print(", Year: ");
+    print(t.year);
+    print(", Weight: ");
+    print(t.weight);
+    print(", Passangers: ");
+    print(t.passangers);
+    print(", Max Weight: ");
+    print(t.max_weight);
+    print(", Max Passangers: ");
+    print(t.max_passangers);
+    print(", Trailer: ");
+    print(t.trailer);
+    print("\n");
+}
+
+void main(){
+    Car c = new Car("Subaru", 2010, 3264, 0, 4000, 5);
+    Truck t = new Truck("Navistar", 2005, 20000, 0, 50000, 3, true);
+    print(c);
+    print(t);
+    print(add_passanger(c));
+    print(add_passanger(c));
+    print(add_passanger(c));
+    print(add_passanger(c));
+    print(add_passanger(c));
+    print(add_passanger(c));
+    print(c);
+    print("\n");
+
+    print(add_passanger(t));
+    print(add_passanger(t));
+    print(add_passanger(t));
+    print(add_passanger(t));
+    print(add_passanger(t));
+    print(add_passanger(t));
+    print(t);
+    print("\n");
+
+    print(add_cargo(c, 1000));
+    print(add_cargo(c, 300));
+    print(c);
+    print("\n");
+
+    print(add_cargo(t, 6000));
+    print(add_cargo(t, 18000));
+    print(add_cargo(t, 60000));
+    print(t);
+    print("\n");
+
+}

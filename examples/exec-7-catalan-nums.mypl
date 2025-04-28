@@ -1,0 +1,29 @@
+//----------------------------------------------------------------------
+// HW-6 Test Program
+//----------------------------------------------------------------------
+
+int fac(int n) {
+  if(n <= 0) {
+    return 1;
+  }
+  return n * fac(n - 1);
+}
+
+int catalan_number(int n) {
+  if(n < 0) {
+    // only defined for n >= 0
+    return 0;
+  }
+  return fac(2 * n) / (fac(n + 1) * fac(n));
+}
+
+// prints : 1 , 1 , 2 , 5 , 14 , 42 , 132 , ...
+void main() {
+  print("Enter the number of catalan numbers to print: ");
+  int m = stoi(input());
+  for(int n = 0; n < m; n = n + 1) {
+    int c = catalan_number(n);
+    print("Catalan number " + itos(n) + " = " + itos(c) + "\n");
+  }
+}
+

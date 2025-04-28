@@ -1,0 +1,42 @@
+//----------------------------------------------------------------------
+// Project Test Program
+// Caleb Lefcort
+// Bowers 326
+// 5/10/2024
+//
+// This program is an overloaded implementation of the factorial fucntion and it does it recursivly or iterativly.
+//----------------------------------------------------------------------
+
+int fac(int n) {
+    if (n <= 0) {
+        return 1;
+    }
+    else {
+        int r = n * fac(n - 1);
+        return r;
+    }
+}
+
+int fac(int n, string x){
+    int total = n;
+    for(int i = (n-1); i > 0; i = i-1){
+        total = total * i;
+    }
+    return total;
+}
+
+void main() {
+    int v = 12;
+    int r = fac(v);
+    int y = fac(v, "f");
+    print("the factorial of ");
+    print(v);
+    print(" is ");
+    print(r);
+    print("\n");
+    print("the non recursive factorial of ");
+    print(v);
+    print(" is ");
+    print(y);
+    print("\n");
+}

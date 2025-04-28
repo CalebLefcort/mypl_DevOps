@@ -1,0 +1,32 @@
+//----------------------------------------------------------------------
+// Project Test Program
+// Caleb Lefcort
+// Bowers 326
+// 5/10/2024
+//
+// This program tests a basic overload
+//----------------------------------------------------------------------
+
+int f1(int x, int y) {
+    int z = x + y;
+    return z;
+}
+
+double f1(double x, double y){
+    double z = x + y;
+    return z;
+}
+
+int f1(string x, string y){
+    string z = x + y;
+    return length(z);
+}
+
+void main(){
+    print(f1(2,4));
+    print("\n");
+    print(f1(2.3,4.3));
+    print("\n");
+    print(f1("yo","dog"));
+    print("\n");
+}

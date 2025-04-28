@@ -1,0 +1,104 @@
+//----------------------------------------------------------------------
+// Project Test Program
+// Caleb Lefcort
+// Bowers 326
+// 5/10/2024
+//
+// This program implements a linked list with an overloaded print function that does not need the size of the 
+// list and an insert function that inserts a node while maintaining the sorted order. The main
+// function then initilizes the list and prompts the user to enter new nodes then prints the list.
+//----------------------------------------------------------------------
+
+
+struct Node {
+  int val;
+  Node next;
+}
+
+void print(Node head){
+    print("[");
+    Node ptr = head;
+    while (ptr != null) {
+        print(ptr.val);
+        if (ptr.next != null) {
+            print(",");
+        }
+        ptr = ptr.next;
+    }
+    print("]\n");
+}
+
+int length(Node head){
+    Node ptr = head;
+    int len = 0;
+    while (ptr != null) {
+        len = len + 1;
+        ptr = ptr.next;
+    }
+    return len;
+}
+
+Node insert(Node head, int n){
+    Node cur = head;
+    Node prev = null;
+    bool flag; //needed becuase do not want to eval cur.val if cur is null
+    if (n > cur.val){
+        flag = true;
+    }
+    else{
+        flag = false;
+    }
+    while ((cur != null) and (flag)){
+        prev = cur;
+        cur = cur.next;
+        if(cur != null){
+            if (n < cur.val){
+                flag = false;
+            }
+        }
+    }
+    Node temp = new Node(n, cur);
+    if (prev == null) {
+        temp.next = head;
+        head = temp;
+    } else {
+        prev.next = temp;
+        temp.next = cur;
+    }
+    return head;
+}
+
+
+void main() {
+
+    // creates a linked list: [10, 20, 30, 40, 50]
+
+    Node head = null;
+    int len = 5;
+
+    for (int i = 0; i <= (len - 1); i = i + 1) {
+    Node ptr = new Node(null, null);
+    ptr.val = (len - i) * 10;
+    ptr.next = head;
+    head = ptr;
+    }
+
+    print("Original Linked List: ");
+    print(head);
+    print("length of original list: ");
+    print(length(head));
+    print("\n");
+    string in = "";
+    while (in != "q"){
+        print("Enter an int to add (q to quit): ");
+        in = input();
+        if(in != "q"){
+            head = insert(head, stoi(in));
+            print("New Linked List: ");
+            print(head);
+            print("length of new list: ");
+            print(length(head));
+            print("\n");
+        }
+    }
+}

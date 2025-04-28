@@ -1,0 +1,31 @@
+//----------------------------------------------------------------------
+// HW-6 Test Program
+//----------------------------------------------------------------------
+
+
+void main() {
+
+  print("Normal String\n");
+
+  print("String with \t tab\n");
+
+  print("Should be '24': " + itos(stoi("23") + 1));
+  print("\n");
+
+  print("Should be '3.5': " + dtos(stod("3.25") + 0.25));
+  print("\n");
+
+  print("Should be '7': " + itos(length("foo bar")));
+  print("\n");
+
+  print("Should be 'f': " + get(0, "foo"));
+  print("\n");
+
+  print("Should be 'o': " + get(1, "foo"));
+  print("\n");
+
+  print("Enter a string: ");
+  print("Should be what you entered: " + input());
+  print("\n");
+}
+

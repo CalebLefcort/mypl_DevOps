@@ -1,0 +1,45 @@
+//----------------------------------------------------------------------
+// Project Test Program
+// Caleb Lefcort
+// Bowers 326
+// 5/10/2024
+//
+// This program tests a more useful case where sum can be used on multiple types
+//----------------------------------------------------------------------
+
+int sum(int x, int y) {
+    int z = x + y;
+    return z;
+}
+
+double sum(double x, double y){
+    double z = x + y;
+    return z;
+}
+
+int sum(array int xs){
+    int total = 0;
+    for(int i = 0; i < length(xs); i = i + 1){
+        total = total + xs[i];
+    }
+    return total;
+}
+
+void main(){
+    int a = 2;
+    int b = 3;
+    print(sum(a,b));
+    print("\n");
+
+    double d = 2.3;
+    double e = 4.7;
+    print(sum(d,e));
+    print("\n");
+
+    array int f = new int[10];
+    for(int i = 0; i < length(f); i = i + 1){
+        f[i] = i;
+    }
+    print(sum(f));
+    print("\n");
+}
