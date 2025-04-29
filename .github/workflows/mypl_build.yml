@@ -1,5 +1,5 @@
-name: Counter Build Test
-run-name: ${{ github.actor }} is testing out GitHub Actions 🚀
+name: Mypl Build Test
+run-name: Mypl Build Test
 on: [push]
 jobs:
   build:
