@@ -1,0 +1,83 @@
+name: Counter Build Test
+run-name: ${{ github.actor }} is testing out GitHub Actions 🚀
+on: [push]
+jobs:
+  build:
+    runs-on: [self-hosted, linux, CSPC334]
+    timeout-minutes: 2
+    container: ubuntu:latest
+    steps:
+      - name: Install build dependencies
+        run: |
+          apt-get update
+          apt-get install -y make
+      - name: checkout repo
+        uses: actions/checkout@v4
+      - name: Run make build
+        run: make build
+  test:
+    runs-on: [self-hosted, linux, CSPC334]
+    timeout-minutes: 2
+    needs: build
+    container: ubuntu:latest
+    steps:
+      - name: Install build dependencies
+        run: |
+          apt-get update
+          apt-get install -y make python3 python3-pytest
+      - name: checkout repo
+        uses: actions/checkout@v4
+      - name: Run make test
+        run: make test
+  lint:
+    runs-on: [self-hosted, linux, CSPC334]
+    timeout-minutes: 2
+    needs: build
+    container: ubuntu:latest
+    steps:
+      - name: Install build dependencies
+        run: |
+          apt-get update
+          apt-get install -y make python3 pylint
+      - name: checkout repo
+        uses: actions/checkout@v4
+      - name: Run make test
+        run: make lint
+  build-deb-package:
+    runs-on: [self-hosted, linux, CSPC334]
+    timeout-minutes: 2
+    needs: build
+    container: ubuntu:latest
+    steps:
+      - name: Install build dependencies
+        run: |
+          apt-get update
+          apt-get install -y make
+      - name: checkout repo
+        uses: actions/checkout@v4
+      - name: Run make build-deb
+        run: make build-deb
+      - name: Save deb file
+        uses: actions/upload-artifact@v4
+        with:
+          name: mypl-deb
+          path: ./*.deb
+  lint-debian-package:
+    runs-on: [self-hosted, linux, CSPC334]
+    timeout-minutes: 2
+    needs: build-deb-package
+    container: ubuntu:latest
+    steps:
+      - name: Install build dependencies
+        run: |
+          apt-get update
+          apt-get install -y make lintian
+      - name: checkout repo
+        uses: actions/checkout@v4
+      - name: Download deb file
+        uses: actions/download-artifact@v4
+        with:
+          name: mypl-deb
+          path: .
+      - name: run linter
+        run: make lint-deb
