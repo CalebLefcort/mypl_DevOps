@@ -80,4 +80,4 @@ jobs:
           name: mypl-deb
           path: .
       - name: run linter
-        run: make lint-deb
+        run: make lint_deb
