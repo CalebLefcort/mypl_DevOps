@@ -13,6 +13,9 @@ lint:
 test:
 	pytest ./bin/project_tests.py
 
+deb_build:
+	bash debian.sh
+
 lint_deb:
 	lintian mypl_*.deb || true
 
