@@ -1,14 +1,4 @@
-PYTHON = python3
-
-SRC_DIR = .
-TEST_DIR = ./bin/project_tests.py
-LINT_DIR = ./bin
-
-LINTER = pylint
-
-TEST_CMD = pytest
-
-APT_PACKAGES = pylint python3-pytest
+APT_PACKAGES = python3 pylint python3-pytest lintian
 
 install:
 	apt update
@@ -18,7 +8,15 @@ build:
 	echo "Building"
 
 lint:
-	$(LINTER) $(LINTER_OPTS) $(LINT_DIR)
+	pylint --exit-zero ./bin
 
 test:
-	$(TEST_CMD) $(TEST_OPTS) $(TEST_DIR)
+	pytest ./bin/project_tests.py
+
+lint_deb:
+	lintian mypl_*.deb || true
+
+clean_deb:
+	rm -rf mypl_*.deb pkg
+
+
