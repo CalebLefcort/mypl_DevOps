@@ -41,7 +41,7 @@ jobs:
           apt-get install -y make python3 pylint
       - name: checkout repo
         uses: actions/checkout@v4
-      - name: Run make test
+      - name: Run make lint
         run: make lint
   build-deb-package:
     runs-on: [self-hosted, linux, CSPC334]
