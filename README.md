@@ -13,7 +13,7 @@ Debian package for mypl deployment
   - [Run Locally](#run-locally)  
 - [Testing](#testing)  
 - [Examples](#examples)  
-- [License](#license)  
+
 
 ---
 
@@ -42,11 +42,6 @@ cd mypl_DevOps
 ```  
 
 ### Install Dependencies  
-If there are any Python modules, third‐party libraries or system dependencies needed:  
-```bash
-# Example (adjust to your language/environment)
-pip install -r requirements.txt
-```  
 If you are using the `debian.sh` to set up a Debian/Ubuntu system:  
 ```bash
 chmod +x debian.sh  
@@ -54,19 +49,19 @@ chmod +x debian.sh
 ```  
 
 ### Run Locally  
-If running without containerization:  
 ```bash
-# Example: run the service
-python main.py   # or ./bin/run_service.sh  
-```  
-Replace with the appropriate command according to your implementation (Java, Python, etc.).
+make deb_build
+```
+once installed call using
+```bash
+mypl program name
+```
 
 
 ## Testing  
 To execute unit tests:  
 ```bash
-# Example for Python
-pytest  
+make test 
 ```  
 
 ## Examples  
@@ -77,13 +72,4 @@ In the `examples/` directory you’ll find sample input files and usage scenario
 Run the service with this example to verify correct behavior.
 
 
-## License  
-Specify your license here (e.g., MIT, Apache 2.0).  
-```
-MIT License
-```
 
-## Contact  
-If you have questions or run into issues, you can contact:  
-* Caleb Lefcort (Repository Owner)  
-* Email: [your.email@example.com]
